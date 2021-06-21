@@ -24,15 +24,15 @@ import java.util.concurrent.ConcurrentHashMap;
 public class BeanHelper
 {
     protected static final Object[] NULL_ARGUMENTS = {};
-
+    
     private static Map<String, ReflectionInfo> cache = new ConcurrentHashMap<String, ReflectionInfo>();
-
+    
     private static BeanHelper bhelp = null;
-
+    
     public BeanHelper()
     {
     }
-
+    
     public static BeanHelper getInstance()
     {
         if (null == bhelp)
@@ -41,7 +41,7 @@ public class BeanHelper
         }
         return bhelp;
     }
-
+    
     /**
      * *********************************************************** <br>
      * 说明： 检测对象的有没有属性名<br>
@@ -61,7 +61,7 @@ public class BeanHelper
     {
         return Arrays.asList(getInstance().getPropertiesAry(bean.getClass())).contains(field);
     }
-
+    
     /**
      * *********************************************************** <br>
      * 说明： 返回对象的所有属性名<br>
@@ -80,7 +80,7 @@ public class BeanHelper
     {
         return Arrays.asList(getInstance().getPropertiesAry(beanCls));
     }
-
+    
     /**
      * *********************************************************** <br>
      * 说明： 返回对象的所有属性名<br>
@@ -97,7 +97,7 @@ public class BeanHelper
      */
     public static String[] getPropertiesAry(Class<?> beanCls)
     {
-
+        
         ReflectionInfo reflectionInfo = null;
         reflectionInfo = cachedReflectionInfo(beanCls);
         Set<String> propertys = new HashSet<String>();
@@ -110,7 +110,7 @@ public class BeanHelper
         }
         return propertys.toArray(new String[0]);
     }
-
+    
     public static void setProperty(Object bean, String propertyName, Object value)
     {
         String pptType = null;
@@ -132,32 +132,32 @@ public class BeanHelper
             if (!PubEnvUtilbc.equals(pptType, vType))
             {
                 if (PubEnvUtilbc.equals(pptType, String.class.getName())) value = StringUtilbc.valueOf(value);
-                    // short：16位，最大数据存储量是65536，数据范围是-32768~32767之间。
+                // short：16位，最大数据存储量是65536，数据范围是-32768~32767之间。
                 else if (PubEnvUtilbc.equals(pptType, Short.class.getName())) value = Short.valueOf(StringUtilbc.valueOf(value));
-                    // int：32位，最大数据存储容量是2的32次方减1，数据范围是负的2的31次方到正的2的31次方减1。
+                // int：32位，最大数据存储容量是2的32次方减1，数据范围是负的2的31次方到正的2的31次方减1。
                 else if (PubEnvUtilbc.equals(pptType, Integer.class.getName())) value = Integer.valueOf(StringUtilbc.valueOf(value));
-                    // long：64位，最大数据存储容量是2的64次方减1，数据范围为负的2的63次方到正的2的63次方减1。
+                // long：64位，最大数据存储容量是2的64次方减1，数据范围为负的2的63次方到正的2的63次方减1。
                 else if (PubEnvUtilbc.equals(pptType, Long.class.getName())) value = Long.valueOf(StringUtilbc.valueOf(value));
-                    // double：64位，数据范围在4.9e-324~1.8e308，赋值时可以加d或D也可以不加。
+                // double：64位，数据范围在4.9e-324~1.8e308，赋值时可以加d或D也可以不加。
                 else if (PubEnvUtilbc.equals(pptType, Double.class.getName())) value = Double.valueOf(StringUtilbc.valueOf(value));
-                    // float：32位，数据范围在3.4e-45~1.4e38，直接赋值时必须在数字后加上f或F。
+                // float：32位，数据范围在3.4e-45~1.4e38，直接赋值时必须在数字后加上f或F。
                 else if (PubEnvUtilbc.equals(pptType, Float.class.getName())) value = Float.valueOf(StringUtilbc.valueOf(value));
-                    // boolean：只有true和false两个取值 例：double a =0.1f;(正确) float e = 0.1d;(错)
+                // boolean：只有true和false两个取值 例：double a =0.1f;(正确) float e = 0.1d;(错)
                 else if (PubEnvUtilbc.equals(pptType, Boolean.class.getName())) value = Boolean.valueOf(StringUtilbc.valueOf(value));
-                    // char：16位，存储Unicode码，用单引号赋值。
+                // char：16位，存储Unicode码，用单引号赋值。
                 else if (PubEnvUtilbc.equals(pptType, char.class.getName())) value = StringUtilbc.valueOfEmpty(value).toCharArray()[0];
-                    // char：16位，存储Unicode码，用单引号赋值。
+                // char：16位，存储Unicode码，用单引号赋值。
                 else if (PubEnvUtilbc.equals(pptType, byte.class.getName())) value = StringUtilbc.valueOfEmpty(value).getBytes();
-
+                
             }
-
+            
             method.invoke(bean, value);
-
+            
         }
         catch (java.lang.IllegalArgumentException e)
         {
             String errStr = "Failed to set property: " + propertyName + " at bean: " + bean.getClass().getName() + " the property type is "
-                    + pptType + ", however obtain value:" + value + " type:" + (value == null ? "null" : value.getClass().getName());
+                + pptType + ", however obtain value:" + value + " type:" + (value == null ? "null" : value.getClass().getName());
             // Logger.error(errStr, e);
             throw new IllegalArgumentException(errStr, e);
         }
@@ -168,7 +168,7 @@ public class BeanHelper
             throw new RuntimeException(errStr, e);
         }
     }
-
+    
     /**
      * 获取bean对象的属性值
      *
@@ -178,7 +178,7 @@ public class BeanHelper
      */
     public static Object getProperty(Object bean, String propertyName)
     {
-
+        
         try
         {
             Method method = getInstance().getMethod(bean.getClass(), propertyName, false);
@@ -199,7 +199,7 @@ public class BeanHelper
             throw new RuntimeException(errStr, e);
         }
     }
-
+    
     /**
      * *********************************************************** <br>
      * 说明： 批量返回bean对象的属性值<br>
@@ -240,7 +240,7 @@ public class BeanHelper
         }
         return result;
     }
-
+    
     /**
      * 返回属性的set方法
      *
@@ -252,17 +252,17 @@ public class BeanHelper
     {
         return getInstance().getMethod(beanCls, propertyName, true);
     }
-
+    
     public static Method getGetMethod(Class<?> beanCls, String propertyName)
     {
         return getInstance().getMethod(beanCls, propertyName, false);
     }
-
+    
     public static Method getSetMethod(Class<?> beanCls, String propertyName)
     {
         return getInstance().getMethod(beanCls, propertyName, true);
     }
-
+    
     /**
      * 批量返回属性的set方法
      *
@@ -274,12 +274,12 @@ public class BeanHelper
     {
         return getInstance().getMethods(beanCls, propertys, true);
     }
-
+    
     private Method[] getMethods(Class<?> beanCls, String[] propertys, boolean isSetMethod)
     {
         Method[] methods = new Method[propertys.length];
         ReflectionInfo reflectionInfo = null;
-
+        
         reflectionInfo = cachedReflectionInfo(beanCls);
         for (int i = 0, j = propertys.length; i < j; i++)
         {
@@ -296,17 +296,17 @@ public class BeanHelper
         }
         return methods;
     }
-
+    
     private Method getMethod(Class<?> beanCls, String propertyName, boolean isSetMethod)
     {
         return getMethods(beanCls, new String[]{propertyName}, isSetMethod)[0];
     }
-
+    
     private static ReflectionInfo cachedReflectionInfo(Class<?> beanCls)
     {
         return cacheReflectionInfo(beanCls, null);
     }
-
+    
     private static ReflectionInfo cacheReflectionInfo(Class<?> beanCls, List<PropDescriptor> pdescriptor)
     {
         String key = beanCls.getName();
@@ -337,9 +337,9 @@ public class BeanHelper
             }
         }
         return reflectionInfo;
-
+        
     }
-
+    
     public static void invokeMethod(Object bean, Method method, Object value)
     {
         try
@@ -354,7 +354,7 @@ public class BeanHelper
             throw new RuntimeException(errStr, e);
         }
     }
-
+    
     /**
      * *********************************************************** <br>
      * 说明：
@@ -394,7 +394,7 @@ public class BeanHelper
         }
         return method;
     }
-
+    
     /**
      * *********************************************************** <br>
      * 说明：
@@ -434,7 +434,7 @@ public class BeanHelper
         }
         return method;
     }
-
+    
     /**
      * *********************************************************** <br>
      * 说明：返回所有get的方法 <br>
@@ -452,7 +452,7 @@ public class BeanHelper
      */
     public Method[] getAllGetMethod(Class<?> beanCls, String[] fieldNames)
     {
-
+        
         Method[] methods = null;
         ReflectionInfo reflectionInfo = null;
         List<Method> al = new ArrayList<Method>();
@@ -464,7 +464,7 @@ public class BeanHelper
         methods = al.toArray(new Method[al.size()]);
         return methods;
     }
-
+    
     /**
      * *********************************************************** <br>
      * 说明：获取Bean所有信息 <br>
@@ -484,7 +484,7 @@ public class BeanHelper
     {
         return ReflectionUtilbc.getBeanInfo(obj);
     }
-
+    
     private static List<PropDescriptor> getPropertyDescriptors(Class<?> clazz)
     {
         List<PropDescriptor> descList = new ArrayList<PropDescriptor>();
@@ -543,7 +543,7 @@ public class BeanHelper
             }
             descList.add(new PropDescriptor(clazz, propType, propname));
         }
-
+        
         // Class<?> superClazz = clazz.getSuperclass();
         // if (superClazz != null)
         // {
@@ -556,7 +556,7 @@ public class BeanHelper
         // }
         return descList;
     }
-
+    
     /**
      * *********************************************************** <br>
      * 说明：是否缓存了Bean <br>
@@ -585,7 +585,7 @@ public class BeanHelper
         }
         return true;
     }
-
+    
     /**
      * *********************************************************** <br>
      * 说明：判断是不是Bean Class <br>
@@ -611,9 +611,9 @@ public class BeanHelper
                 return Boolean.TRUE;
         }
         return Boolean.FALSE;
-
+        
     }
-
+    
     /**
      * *********************************************************** <br>
      * 说明： 将一个 JavaBean 对象转化为一个Map <br>
@@ -633,7 +633,7 @@ public class BeanHelper
     {
         if (null == bean) return null;
         Map<String, Object> map = new LinkedHashMap<String, Object>();
-
+        
         String[] propertiesAry = getPropertiesAry(bean.getClass());
         for (int i = 0, j = PubEnvUtilbc.getSize(propertiesAry); i < j; i++)
         {
@@ -644,10 +644,10 @@ public class BeanHelper
                 map.put(key, value);
             }
         }
-
+        
         return map;
     }
-
+    
     /**
      * *********************************************************** <br>
      * 说明： 用Introspector和PropertyDescriptor 将Bean --> Map<br>
@@ -682,7 +682,7 @@ public class BeanHelper
         }
         return map;
     }
-
+    
     /**
      * *********************************************************** <br>
      * 说明： 将一个 Map 对象转化为一个 JavaBean<br>
@@ -724,23 +724,23 @@ public class BeanHelper
         }
         return obj;
     }
-
+    
     static class ReflectionInfo
     {
-
+        
         Map<String, Method> readMap = new HashMap<String, Method>();
-
+        
         Map<String, Method> writeMap = new HashMap<String, Method>();
-
+        
         Method getReadMethod(String prop)
         {
             return prop == null ? null : this.readMap.get(prop.toLowerCase());
         }
-
+        
         Method getWriteMethod(String prop)
         {
             return prop == null ? null : this.writeMap.get(prop.toLowerCase());
         }
     }
-
+    
 }
