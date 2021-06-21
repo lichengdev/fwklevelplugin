@@ -111,6 +111,21 @@ public class BeanHelper
         return propertys.toArray(new String[0]);
     }
     
+    /**
+     * *********************************************************** <br>
+     * *说明：设置对象属性 <br>
+     * @see <br>
+     * @param bean
+     * @param propertyName
+     * @param value <br>
+     * @void <br>
+     * @methods pers.bc.utils.Bean.BeanHelper#setProperty <br>
+     * @author LiBencheng <br>
+     * @date Created on 2021年6月21日 <br>
+     * @time 下午7:39:36 <br>
+     * @version 1.0 <br>
+     *************************************************************          <br>
+     */
     public static void setProperty(Object bean, String propertyName, Object value)
     {
         String pptType = null;
