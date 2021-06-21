@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+	<!--寮曞叆鏁版嵁閰嶇疆鏂囦欢 -->
+	<properties resource="bd_config.properties" />
+
+	<!-- 閰嶇疆鍏ㄥ眬鍙橀噺 -->
+	<settings>
+		<setting name="cacheEnabled" value="false" />
+		<setting name="lazyLoadingEnabled" value="false" />
+	</settings>
+
+	<!--璁剧疆鍒悕 -->
+	<typeAliases>
+		<!-- 鍗曚釜鍒悕 -->
+		<typeAlias type="pres.bc.mybatis.entity.PsndocVO"
+			alias="PsndocVO" />
+		<package name="pres.bc.mybatis.entity" />
+	</typeAliases>
+
+	<typeHandlers>
+		<typeHandler
+			handler="pres.bc.mybatis.converthandler.GenderConvertTypehandler"
+			javaType="String" jdbcType="NUMERIC" />
+	</typeHandlers>
+
+
+	<!-- <environments default="development">== <environment id="development"> -->
+	<environments default="development">
+		<environment id="development">
+			<!--浜嬪姟鏂瑰紡JDBC鏃讹紝闇�瑕佹墜鍔ㄦ彁浜� 锛涘嵆session.commit() -->
+			<transactionManager type="JDBC" />
+			<dataSource type="POOLED">
+				<property name="driver" value="${driver}" />
+				<property name="url" value="${url}" />
+				<property name="username" value="${username}" />
+				<property name="password" value="${password}" />
+
+				<!-- <property name="driver" value="oracle.jdbc.OracleDriver" /> <property 
+					name="url" value="jdbc:oracle:thin:@127.0.0.1:1521:ORCL" /> <property name="username" 
+					value="NCC0420" /> <property name="password" value="NCC0420" /> -->
+			</dataSource>
+
+		</environment>
+	</environments>
+	<mappers>
+		<mapper resource="pres/bc/mybatis/entity/PsndocMapper.xml" />
+		<mapper resource="pres/bc/mybatis/mapper/IPsndocMapper.xml" />
+	</mappers>
+</configuration>

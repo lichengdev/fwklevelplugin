@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions
+xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl"
+xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+xmlns:jaxb="http://java.sun.com/xml/ns/jaxb"
+xmlns:jaxws="http://java.sun.com/xml/ns/jaxws"
+jaxb:version="2.0"
+xmlns:ns0="http://webservice.tools.itf.pub.nc/My_Itf_PubWebService"
+targetNamespace="http://webservice.tools.itf.pub.nc/My_Itf_PubWebService">
+
+<jaxws:bindings>
+	<jaxws:package name="nc.pub.itf.tools.webservice"/>
+</jaxws:bindings>
+
+<wsdl:types>
+   <xsd:schema xmlns:ns="http://webservice.tools.itf.pub.nc/My_Itf_PubWebService"
+			xmlns:nclang="http://ws.uap.nc/lang"
+			attributeFormDefault="unqualified"
+			elementFormDefault="unqualified"
+			targetNamespace="http://webservice.tools.itf.pub.nc/My_Itf_PubWebService" jaxb:version="2.0">
+	<xsd:annotation>
+    	<xsd:appinfo>
+   			<jaxb:schemaBindings>
+    			<jaxb:package name="nc.pub.itf.tools.webservice"/>
+    		</jaxb:schemaBindings>
+   		</xsd:appinfo>
+   	</xsd:annotation>
+	 <xsd:import namespace="http://ws.uap.nc/lang" schemaLocation="/nc/uap/ws/lang.xsd"/>
+	<xsd:element name="returnData">
+         <xsd:complexType>
+            <xsd:sequence>
+				<xsd:element name="string"  minOccurs="0" nillable="true" type="xsd:string"/>
+             </xsd:sequence>  
+         </xsd:complexType>
+     </xsd:element>
+	<xsd:element name="returnDataResponse">
+         <xsd:complexType>
+            <xsd:sequence>
+				<xsd:element name="return"  minOccurs="0" nillable="true" type="xsd:anyType"/>
+             </xsd:sequence>  
+         </xsd:complexType>
+     </xsd:element>
+	<xsd:element name="returnDataExt">
+         <xsd:complexType>
+            <xsd:sequence>
+				<xsd:element name="stringItem" maxOccurs="unbounded" minOccurs="0" nillable="true" type="xsd:string"/>
+             </xsd:sequence>  
+         </xsd:complexType>
+     </xsd:element>
+	<xsd:element name="returnDataExtResponse">
+         <xsd:complexType>
+            <xsd:sequence>
+				<xsd:element name="return"  minOccurs="0" nillable="true" type="xsd:anyType"/>
+             </xsd:sequence>  
+         </xsd:complexType>
+     </xsd:element>
+   </xsd:schema>
+</wsdl:types>
+    <wsdl:message name="returnDataRequest">
+        <wsdl:part name="parameters"  element="ns0:returnData"/>
+    </wsdl:message>
+    <wsdl:message name="returnDataResponse">
+        <wsdl:part name="parameters"  element="ns0:returnDataResponse"/>
+    </wsdl:message>
+    <wsdl:message name="Exception">
+        <wsdl:part name="Exception"  xmlns:nclang="http://ws.uap.nc/lang"  element="nclang:Exception"/>
+    </wsdl:message>
+    <wsdl:message name="returnDataExtRequest">
+        <wsdl:part name="parameters"  element="ns0:returnDataExt"/>
+    </wsdl:message>
+    <wsdl:message name="returnDataExtResponse">
+        <wsdl:part name="parameters"  element="ns0:returnDataExtResponse"/>
+    </wsdl:message>
+    <wsdl:message name="Exception">
+        <wsdl:part name="Exception"  xmlns:nclang="http://ws.uap.nc/lang"  element="nclang:Exception"/>
+    </wsdl:message>
+
+    <wsdl:portType name="My_Itf_PubWebServicePortType">
+        <wsdl:operation name="returnData">
+            <wsdl:input message="ns0:returnDataRequest" wsaw:Action="urn:returnData"/>
+            <wsdl:output message="ns0:returnDataResponse" wsaw:Action="urn:returnDataResponse"/>
+            <wsdl:fault name="Exception" message="ns0:Exception"/>
+        </wsdl:operation>
+        <wsdl:operation name="returnDataExt">
+            <wsdl:input message="ns0:returnDataExtRequest" wsaw:Action="urn:returnDataExt"/>
+            <wsdl:output message="ns0:returnDataExtResponse" wsaw:Action="urn:returnDataExtResponse"/>
+            <wsdl:fault name="Exception" message="ns0:Exception"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    
+    
+    <wsdl:binding name="My_Itf_PubWebServiceSOAP11Binding" type="ns0:My_Itf_PubWebServicePortType">
+        <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+        <wsdl:operation name="returnData">
+            <soap:operation soapAction="urn:returnData" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+     		<wsdl:fault name="Exception">
+        		<soap:fault name="Exception" use="literal"/>
+      		</wsdl:fault>
+
+        </wsdl:operation>
+        <wsdl:operation name="returnDataExt">
+            <soap:operation soapAction="urn:returnDataExt" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+     		<wsdl:fault name="Exception">
+        		<soap:fault name="Exception" use="literal"/>
+      		</wsdl:fault>
+
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="My_Itf_PubWebService">
+        <wsdl:port name="My_Itf_PubWebServiceSOAP11port_http" binding="ns0:My_Itf_PubWebServiceSOAP11Binding">
+            <soap:address location="http://localhost/uapws/service/My_Itf_PubWebService"/>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>

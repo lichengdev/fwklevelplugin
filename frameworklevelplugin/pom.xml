@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.5.1</version>
+        <relativePath/> <!-- lookup parent from repository -->
+    </parent>
+    <groupId>pers.bc</groupId>
+    <artifactId>frameworklevelplugin</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <name>frameworklevelplugin</name>
+    <description>fwklevelplugin 本城的快速开发工具，框架级插件代码库</description>
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <java.version>1.8</java.version>
+    </properties>
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <!--2021 06 19 start -->
+
+
+
+        <!-- https://mvnrepository.com/artifact/com.google.code.gson/gson -->
+        <dependency>
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
+        </dependency>
+        <!--集成redis -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-redis</artifactId>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.apache.commons/commons-lang3 -->
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/commons-io/commons-io -->
+        <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+            <version>2.10.0</version>
+        </dependency>
+
+
+        <!-- https://mvnrepository.com/artifact/commons-net/commons-net -->
+        <dependency>
+            <groupId>commons-net</groupId>
+            <artifactId>commons-net</artifactId>
+            <version>3.8.0</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.krysalis/krysalis-barcode -->
+        <dependency>
+            <groupId>org.krysalis</groupId>
+            <artifactId>krysalis-barcode</artifactId>
+            <version>1.0beta</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/com.google.zxing/core -->
+        <dependency>
+            <groupId>com.google.zxing</groupId>
+            <artifactId>core</artifactId>
+            <version>3.4.1</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/com.google.zxing/javase -->
+        <dependency>
+            <groupId>com.google.zxing</groupId>
+            <artifactId>javase</artifactId>
+            <version>3.4.1</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api -->
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/com.sun.mail/javax.mail -->
+        <dependency>
+            <groupId>com.sun.mail</groupId>
+            <artifactId>javax.mail</artifactId>
+            <version>1.6.2</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.mybatis/mybatis -->
+        <dependency>
+            <groupId>org.mybatis</groupId>
+            <artifactId>mybatis</artifactId>
+            <version>3.5.7</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.mybatis.generator/mybatis-generator-core -->
+        <dependency>
+            <groupId>org.mybatis.generator</groupId>
+            <artifactId>mybatis-generator-core</artifactId>
+            <version>1.4.0</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.graniteds/granite-core -->
+        <dependency>
+            <groupId>org.graniteds</groupId>
+            <artifactId>granite-core</artifactId>
+            <version>3.0.0.M3</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/com.alibaba/fastjson -->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>1.2.76</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/javax.xml.rpc/javax.xml.rpc-api -->
+        <dependency>
+            <groupId>javax.xml.rpc</groupId>
+            <artifactId>javax.xml.rpc-api</artifactId>
+            <version>1.1.2</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.apache.axis/axis -->
+        <dependency>
+            <groupId>org.apache.axis</groupId>
+            <artifactId>axis</artifactId>
+            <version>1.4</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.codehaus.xfire/xfire-core -->
+        <dependency>
+            <groupId>org.codehaus.xfire</groupId>
+            <artifactId>xfire-core</artifactId>
+            <version>1.2.6</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.apache.poi/poi-ooxml -->
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi-ooxml</artifactId>
+            <version>5.0.0</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/net.sf.jcharts/krysalis-jCharts -->
+        <dependency>
+            <groupId>net.sf.jcharts</groupId>
+            <artifactId>krysalis-jCharts</artifactId>
+            <version>1.0.0-alpha-1</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.mozilla/rhino -->
+        <dependency>
+            <groupId>org.mozilla</groupId>
+            <artifactId>rhino</artifactId>
+            <version>1.7.13</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/net.sf.barcode4j/barcode4j-light -->
+        <dependency>
+            <groupId>net.sf.barcode4j</groupId>
+            <artifactId>barcode4j-light</artifactId>
+            <version>2.0</version>
+        </dependency>
+        <!--  以下注解的原因，是太老了,建议引用本地的-->
+        <!-- https://mvnrepository.com/artifact/org.mozilla.intl/chardet -->
+        <!-- <dependency>
+            <groupId>org.mozilla.intl</groupId>
+            <artifactId>chardet</artifactId>
+            <version>1.0</version>
+        </dependency> -->
+
+        <!-- https://mvnrepository.com/artifact/com.jacob/jacob -->
+        <!-- <dependency>
+            <groupId>com.jacob</groupId>
+            <artifactId>jacob</artifactId>
+            <version>1.10</version>
+        </dependency> -->
+
+        <!-- https://mvnrepository.com/artifact/aspose/aspose-words -->
+        <!-- <dependency>
+            <groupId>aspose</groupId>
+            <artifactId>aspose-words</artifactId>
+             <version>15.8</version>
+        </dependency> -->
+
+        <!-- https://mvnrepository.com/artifact/com.liepin/spire.doc -->
+        <!-- <dependency>
+            <groupId>com.liepin</groupId>
+            <artifactId>spire.doc</artifactId>
+            <version>0.0.1</version>
+        </dependency> -->
+
+        <!-- 这种方式可以将JAR包引入，还不清楚原因，待研究 -->
+        <!-- <dependency>
+            <groupId>spiredoc</groupId>
+            <artifactId>spiredoc</artifactId>
+            <version>0.0.1</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/src/main/resources/lib/SpireDoc.jar</systemPath>
+            &lt;!&ndash;  <systemPath>D:/OneDrive/workSpaceIdea/frameworkplugin/src/main/resources/lib/SpireDoc.jar</systemPath> &ndash;&gt;
+        </dependency>
+        <dependency>
+            <groupId>aspose</groupId>
+            <artifactId>aspose</artifactId>
+            <version>0.0.1</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/src/main/resources/lib/aspose-words-15.8.0-jdk16.jar</systemPath>
+            &lt;!&ndash; <systemPath>D:/OneDrive/workSpaceIdea/frameworkplugin/src/main/resources/lib/aspose-words-15.8.0-jdk16.jar</systemPath> &ndash;&gt;
+        </dependency>
+        <dependency>
+            <groupId>jacob</groupId>
+            <artifactId>jacob</artifactId>
+            <version>0.0.1</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/src/main/resources/lib/jacob.jar</systemPath>
+            &lt;!&ndash; <systemPath>D:/OneDrive/workSpaceIdea/frameworkplugin/src/main/resources/lib/aspose-words-15.8.0-jdk16.jar</systemPath> &ndash;&gt;
+        </dependency>
+        <dependency>
+            <groupId>mozilla</groupId>
+            <artifactId>mozilla</artifactId>
+            <version>0.0.1</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/src/main/resources/lib/chardet-1.0.jar</systemPath>
+            &lt;!&ndash; <systemPath>D:/OneDrive/workSpaceIdea/frameworkplugin/src/main/resources/lib/chardet-1.0.jar</systemPath> &ndash;&gt;
+        </dependency>-->
+
+
+
+        <!-- end -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+        <!-- 这种方式可以将JAR包引入，还不清楚原因，待研究 -->
+        <!-- <resources>
+            <resource>
+                <targetPath>lib/</targetPath>
+                <directory>lib/</directory>
+                <includes>
+                    <include>**/*.jar</include>
+                </includes>
+            </resource>
+        </resources> -->
+    </build>
+
+</project>
