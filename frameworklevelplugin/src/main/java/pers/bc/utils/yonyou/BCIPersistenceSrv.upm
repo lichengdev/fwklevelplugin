@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding='UTF-8'?>
+<module name="hrcp">
+	<public>
+		<component remote="true" singleton="true" tx="CMT">
+			<interface>pers.bc.utils.yonyou.IPersistenceDAO</interface>
+			<implementation>pers.bc.utils.yonyou.PersistenceDAO</implementation>
+		</component>
+	</public>
+</module> 
