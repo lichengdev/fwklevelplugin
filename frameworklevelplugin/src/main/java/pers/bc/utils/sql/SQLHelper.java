@@ -624,14 +624,15 @@ public class SQLHelper implements PubConsUtilbc
     
     /**
      * *********************************************************** <br>
-     * *说明： 随机生产数,作为表主键,线程安全<br>
+     * *说明： 主键生成策略,为表主键,线程安全<br>
+     * 默认主键为Long形，为String时长度为13 <br>
      * @see <br>
      * @return <br>
-     * @String <br>
-     * @methods pers.bc.utils.sql.SQLHelper#currentTimeMillis <br>
+     * @Long <br>
+     * @methods pers.bc.utils.sql.SQLHelper#generatePrimaryKey <br>
      * @author LiBencheng <br>
      * @date Created on 2021年6月22日 <br>
-     * @time 上午10:45:46 <br>
+     * @time 上午10:49:02 <br>
      * @version 1.0 <br>
      *************************************************************          <br>
      */
