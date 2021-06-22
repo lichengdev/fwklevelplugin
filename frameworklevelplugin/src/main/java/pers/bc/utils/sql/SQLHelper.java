@@ -1,7 +1,3 @@
-/**
- * <a href="http://www.cpupk.com/decompiler">Eclipse Class Decompiler</a> plugin, Copyright (c) 2017 Chen
- * Chao.
- */
 package pers.bc.utils.sql;
 
 import java.text.MessageFormat;
@@ -68,7 +64,7 @@ public class SQLHelper implements PubConsUtilbc
      * @date Created on 2019-7-19
      * @time 上午11:07:58
      * @version 1.0 <br>
-     ************************************************************* <br>
+     *************************************************************          <br>
      */
     public static String appendExtraCond(String cond, String extraCond)
     {
@@ -141,7 +137,7 @@ public class SQLHelper implements PubConsUtilbc
      * @date Created on 2019-7-19
      * @time 上午11:40:12
      * @version 1.0 <br>
-     ************************************************************* <br>
+     *************************************************************          <br>
      */
     public static String getNumberNullSql(String strFieldCode)
     {
@@ -161,7 +157,7 @@ public class SQLHelper implements PubConsUtilbc
      * @date Created on 2019-7-19
      * @time 上午11:40:44
      * @version 1.0 <br>
-     ************************************************************* <br>
+     *************************************************************          <br>
      */
     public static String getPkCorpSQL(String strPk_corp, boolean blIncludeParents, boolean blIncludeChirldren)
     {
@@ -195,7 +191,7 @@ public class SQLHelper implements PubConsUtilbc
      * @date Created on 2019-7-19
      * @time 上午11:43:08
      * @version 1.0 <br>
-     ************************************************************* <br>
+     *************************************************************          <br>
      */
     protected static String[] joinToInSql(String... strValues)
     {
@@ -256,7 +252,7 @@ public class SQLHelper implements PubConsUtilbc
      * @date Created on 2019-7-19
      * @time 上午11:43:55
      * @version 1.0 <br>
-     ************************************************************* <br>
+     *************************************************************          <br>
      */
     public static String joinToInSql(String strValues[], int iCount)
     {
@@ -316,7 +312,7 @@ public class SQLHelper implements PubConsUtilbc
      * @date Created on 2019-7-19
      * @time 上午11:06:23
      * @version 1.0 <br>
-     ************************************************************* <br>
+     *************************************************************          <br>
      */
     protected static String[] joinToInSqls(String strValues[], int iCount)
     {
@@ -437,7 +433,7 @@ public class SQLHelper implements PubConsUtilbc
      * @date Created on 2019-7-19
      * @time 上午11:06:06
      * @version 1.0 <br>
-     ************************************************************* <br>
+     *************************************************************          <br>
      */
     protected static String joinToString(Object[] objArray)
     {
@@ -479,13 +475,13 @@ public class SQLHelper implements PubConsUtilbc
      * 
      * *********************************************************** <br>
      * 说明： 用在拼接sql语句中，把一个单引号转译成两个单引号，以防止SQL注入，调用这个方法不用区分前后台代码<br>
-     *  需要commons-lang-2.1.jar
+     * 需要commons-lang-2.1.jar
      * @String
      * @author licheng
      * @date Created on 2019年8月5日
      * @time 上午12:05:11
      * @version 1.0 <br>
-     ************************************************************* <br>
+     *************************************************************          <br>
      */
     public static String transfer(String strValue)
     {
@@ -545,7 +541,7 @@ public class SQLHelper implements PubConsUtilbc
      * @date Created on 2019-7-19
      * @time 上午11:05:55
      * @version 1.0 <br>
-     ************************************************************* <br>
+     *************************************************************          <br>
      */
     public static String getInsertSQL(String table, String names[])
     {
@@ -566,7 +562,7 @@ public class SQLHelper implements PubConsUtilbc
      * @date Created on 2019-9-20 <br>
      * @time 下午4:22:39 <br>
      * @version 1.0 <br>
-     ************************************************************* <br>
+     *************************************************************          <br>
      */
     public static String getInsertSQL(String table, String[] names, String pkName)
     {
@@ -601,7 +597,7 @@ public class SQLHelper implements PubConsUtilbc
      * @date Created on 2019-9-20 <br>
      * @time 下午4:22:35 <br>
      * @version 1.0 <br>
-     ************************************************************* <br>
+     *************************************************************          <br>
      */
     public static String getInsertSQL(String table, Map<?, ?> map, String pkName)
     {
@@ -615,7 +611,7 @@ public class SQLHelper implements PubConsUtilbc
         if (!ArrayUtilbc.isEmpty(pkName))
         {
             into.append(pkName).append(",");
-            value.append("'").append("xxxxxxxxxxxxxxxxxxxx").append("',");
+            value.append("'").append(generatePrimaryKey()).append("',");
         }
         
         into.setLength(into.length() - 1);
@@ -624,6 +620,24 @@ public class SQLHelper implements PubConsUtilbc
         value.append(")");
         
         return into.append(value).toString();
+    }
+    
+    /**
+     * *********************************************************** <br>
+     * *说明： 随机生产数,作为表主键,线程安全<br>
+     * @see <br>
+     * @return <br>
+     * @String <br>
+     * @methods pers.bc.utils.sql.SQLHelper#currentTimeMillis <br>
+     * @author LiBencheng <br>
+     * @date Created on 2021年6月22日 <br>
+     * @time 上午10:45:46 <br>
+     * @version 1.0 <br>
+     *************************************************************          <br>
+     */
+    public static synchronized Long generatePrimaryKey()
+    {
+        return System.currentTimeMillis();
     }
     
     /***
@@ -636,7 +650,7 @@ public class SQLHelper implements PubConsUtilbc
      * @date Created on 2019-7-19
      * @time 上午11:04:21
      * @version 1.0 <br>
-     ************************************************************* <br>
+     *************************************************************          <br>
      */
     public static String getUpdateSQLByPK(String tableName, String[] names, String pkName)
     {
@@ -657,7 +671,7 @@ public class SQLHelper implements PubConsUtilbc
      * @date Created on 2019-7-31
      * @time 下午1:38:52
      * @version 1.0 <br>
-     ************************************************************* <br>
+     *************************************************************          <br>
      */
     public static String getUpdateSQLByCont(String tableName, String[] names, String... conts)
     {
@@ -687,7 +701,7 @@ public class SQLHelper implements PubConsUtilbc
      * @date Created on 2019-7-19
      * @time 上午11:04:14
      * @version 1.0 <br>
-     ************************************************************* <br>
+     *************************************************************          <br>
      */
     public static String getUpdateSQL(String tableName, String[] names)
     {
@@ -715,7 +729,7 @@ public class SQLHelper implements PubConsUtilbc
      * @date Created on 2019-9-20 <br>
      * @time 下午4:16:37 <br>
      * @version 1.0 <br>
-     ************************************************************* <br>
+     *************************************************************          <br>
      */
     public static String getUpdateSQLByCont(String tableName, Map<?, ?> map, String... conts)
     {
@@ -755,7 +769,7 @@ public class SQLHelper implements PubConsUtilbc
      * @date Created on 2019-7-19
      * @time 上午11:04:33
      * @version 1.0 <br>
-     ************************************************************* <br>
+     *************************************************************          <br>
      */
     public static String getDeleteByPKSQL(String tableName, String pkName)
     {
@@ -772,7 +786,7 @@ public class SQLHelper implements PubConsUtilbc
      * @date Created on 2019-7-19
      * @time 上午11:04:39
      * @version 1.0 <br>
-     ************************************************************* <br>
+     *************************************************************          <br>
      */
     public static String getDeleteSQL(String tableName, String[] names)
     {
@@ -798,7 +812,7 @@ public class SQLHelper implements PubConsUtilbc
      * @date Created on 2019-9-20 <br>
      * @time 下午4:30:50 <br>
      * @version 1.0 <br>
-     ************************************************************* <br>
+     *************************************************************          <br>
      */
     public static String getDeleteSQL(String tableName, Map<?, ?> map)
     {
@@ -821,7 +835,7 @@ public class SQLHelper implements PubConsUtilbc
      * @date Created on 2019-7-19
      * @time 上午11:04:48
      * @version 1.0 <br>
-     ************************************************************* <br>
+     *************************************************************          <br>
      */
     public static String getSelectSQL(String tableName, String[] names, boolean isAnd, String[] fields)
     {
@@ -862,7 +876,7 @@ public class SQLHelper implements PubConsUtilbc
      * @date Created on 2019-7-19
      * @time 上午11:04:56
      * @version 1.0 <br>
-     ************************************************************* <br>
+     *************************************************************          <br>
      */
     public static String getSelectSQL(String tableName, String[] fields)
     {
@@ -894,7 +908,7 @@ public class SQLHelper implements PubConsUtilbc
      * @date Created on 2019-7-19
      * @time 上午11:05:01
      * @version 1.0 <br>
-     ************************************************************* <br>
+     *************************************************************          <br>
      */
     public static String getSelectSQL(String tableName, String[] fields, String[] names)
     {
