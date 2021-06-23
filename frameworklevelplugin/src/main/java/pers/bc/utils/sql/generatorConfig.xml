@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+	<!-- <properties resource="mybatis.properties" /> -->
+	<classPathEntry
+		location="D:\mavenRepository\mysql\mysql-connector-java\8.0.25\mysql-connector-java-8.0.25.jar" />
+	<context id="msqlTables" targetRuntime="MyBatis3">
+		<plugin type="org.mybatis.generator.plugins.SerializablePlugin"></plugin>
+
+		<!-- 注释 -->
+		<commentGenerator>
+			<property name="suppressDate" value="false" />
+			<!-- 是否去除自动生成的注释 -->
+			<property name="suppressAllComments" value="true" />
+			<property name="suppressDate" value="true" /> <!-- 是否生成注释代时间戳 -->
+		</commentGenerator>
+
+		<!-- Mysql数据库连接的信息：驱动类、连接地址、用户名、密码 -->
+		<jdbcConnection driverClass="com.mysql.cj.jdbc.Driver"
+			connectionURL="jdbc:mysql://localhost:3306/dbfoodgame"
+			userId="foodgame" password="foodgame">
+			<property name="nullCatalogMeansCurrent" value="true" />
+		</jdbcConnection>
+
+		<!-- 默认为false，把JDBC DECIMAL 和NUMERIC类型解析为Integer， 为true时 把JDBC DECIMAL 
+			和NUMERIC类型解析为java.math.BigDecimal -->
+		<javaTypeResolver>
+			<property name="forceBigDecimals" value="false" />
+		</javaTypeResolver>
+
+		<!-- targetProject：生成POJO类的位置 -->
+		<javaModelGenerator
+			targetPackage="com.gameley.foodgame.show.entity"
+			targetProject="foodgame\src\main\java">
+			<property name="enableSubPackages" value="true" />
+			<!-- 从数据库返回的值被清理前后的空格 -->
+			<property name="trimStrings" value="true" />
+		</javaModelGenerator>
+
+		<!-- targetProject：mapper映射文件生成的位置 -->
+		<!-- <sqlMapGenerator targetPackage="mapping" targetProject="foodgame\src\main\resources"> 
+			<property name="enableSubPackages" value="true" /> </sqlMapGenerator> -->
+		<sqlMapGenerator targetPackage="mapper.show"
+			targetProject="foodgame\src\main\resources">
+			<property name="enableSubPackages" value="true" />
+		</sqlMapGenerator>
+		<!-- targetProject：mapper接口生成的的位置 -->
+		<javaClientGenerator type="XMLMAPPER"
+			targetPackage="com.gameley.foodgame.show.dao"
+			targetProject="foodgame\src\main\java">
+			<property name="enableSubPackages" value="true" />
+		</javaClientGenerator>
+
+		<!--数据库表 -->
+
+		<!-- <table tableName="fg_ctcs" domainObjectName="ContactEntity" -->
+		<!-- <table tableName="fg_role" domainObjectName="RoleEntity" -->
+		<!-- <table tableName="fg_user" domainObjectName="UserEntity" -->
+		<!-- <table tableName="fg_user_token" domainObjectName="UserTokenEntity" -->
+		<table tableName="fg_show_victoryeval"
+			domainObjectName="VictoryEvalEntity" enableCountByExample="false"
+			enableUpdateByExample="false" enableDeleteByExample="false"
+			enableSelectByExample="false" selectByExampleQueryId="false">
+			<property name="useActualColumnNames" value="false" />
+		</table>
+
+	</context>
+</generatorConfiguration>
