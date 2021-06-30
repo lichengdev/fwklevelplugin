@@ -2,7 +2,6 @@
 **项目说明** 
 - frameworklevelplugin是快速开发工具，各类工具类，不依赖第三方jar开发，完全基于JDK原生构建，可以减少70%以上的开发任务
 <br> 
-<br> 
 
 **分支说明**
 - fwklevelplugin框架级
