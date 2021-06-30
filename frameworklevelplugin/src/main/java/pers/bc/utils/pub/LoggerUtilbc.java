@@ -296,7 +296,7 @@ public final class LoggerUtilbc implements PubConsUtilbc, Serializable
             fileName = file.getName();
 
             StringBuffer msgStr = getSystemInfoStr();
-            if(!PubEnvUtilbc.isEmptyObj(System.getProperty("nc.server.location"))&&!PubEnvUtilbc.equals("develop", System.getProperty("nc.runMode")) ) msgStr = getYONStr();
+            if(!PubEnvUtilbc.isEmptyObj(System.getProperty("nc.server.location"))&&!PubEnvUtilbc.equals("develop", System.getProperty("nc.runMode")) ) msgStr = getYonYouStr();
 
             // if (isDbug) msgStr.append(getBeautyWomanStr());
             if (isInfo) msgStr.append(getKeyBoardStr());
@@ -940,25 +940,25 @@ public final class LoggerUtilbc implements PubConsUtilbc, Serializable
 
         return throwStr;
     }
-    public static StringBuffer getYONStr() throws UnknownHostException
+    public static StringBuffer getYonYouStr() throws UnknownHostException
     {
         StringBuffer yonyouStr = new StringBuffer();
         yonyouStr.append(CRLF);
         yonyouStr.append(CRLF);
-        yonyouStr.append("　　　氺氺氺氺　　　　氺氺氺   　　　　氺氺氺氺　　　　     氺氺氺氺　　　　　氺氺氺          氺氺氺氺　　　　氺氺氺　 　　　　氺氺氺氺　　　　     氺氺氺　　　　氺氺氺　　　　 ").append(CRLF);
-        yonyouStr.append("　　　氺氺氺氺　　　氺氺氺氺   　　氺氺氺氺氺氺氺氺　　     氺氺氺氺　　　　　氺氺氺          氺氺氺氺　　　氺氺氺氺　 　　氺氺氺氺氺氺氺氺　　     氺氺氺　　　　氺氺氺　　　　 ").append("host_ip：")            .append(InetAddress.getLocalHost().getHostAddress()).append(CRLF);
-        yonyouStr.append("　　　　氺氺氺氺　　氺氺氺氺   　氺氺氺氺氺氺氺氺氺氺　     氺氺氺氺氺　　　　氺氺氺          　氺氺氺氺　　氺氺氺氺　 　氺氺氺氺氺氺氺氺氺氺　     氺氺氺　　　　氺氺氺　　　　 ").append("host_name：")            .append(InetAddress.getLocalHost().getHostName()).append(CRLF);
-        yonyouStr.append("　　　　氺氺氺氺　　氺氺氺　   氺氺x氺氺氺氺氺氺氺氺氺      氺氺氺氺氺氺　　　氺氺氺          　氺氺氺氺　　氺氺氺　　 氺氺氺氺氺氺氺氺氺氺氺氺     氺氺氺　　　　氺氺氺　　　　 ").append("file.encoding：")            .append(PropertiesUtilbc.key("file.encoding")).append(CRLF);
-        yonyouStr.append("　　　　　氺氺氺氺氺氺氺氺　   氺氺氺氺　　　　氺氺氺氺     氺氺氺氺氺氺氺　　氺氺氺          　　氺氺氺氺氺氺氺氺　　 氺氺氺氺　　　　氺氺氺氺     氺氺氺　　　　氺氺氺　　　　 ").append("java.version：")            .append(PropertiesUtilbc.key("java.version")).append(CRLF);
-        yonyouStr.append("　　　　　氺氺氺氺氺氺氺　　   氺氺氺氺　　　　氺氺氺氺     氺氺氺氺氺氺氺　　氺氺氺          　　氺氺氺氺氺氺氺　　　 氺氺氺氺　　　　氺氺氺氺     氺氺氺　　　　氺氺氺　　　　 ").append("java.Memory：")            .append(Runtime.getRuntime().totalMemory() / 1024).append(CRLF);
-        yonyouStr.append("　　　　　　氺氺氺氺氺氺　　   氺氺氺　　　　　　氺氺氺     氺氺氺　氺氺氺氺　氺氺氺          　　　氺氺氺氺氺氺　　　 氺氺氺　　　　　　氺氺氺     氺氺氺　　　　氺氺氺　　　　 ").append("java.io.tmpdir：")            .append(PropertiesUtilbc.key("java.io.tmpdir")).append(CRLF);
-        yonyouStr.append("　　　　　　氺氺氺氺氺　　　   氺氺氺　　　　　　氺氺氺     氺氺氺　氺氺氺氺　氺氺氺          　　　氺氺氺氺氺　　　　 氺氺氺　　　　　　氺氺氺     氺氺氺　　　　氺氺氺　　　　 ").append("os.arch：")            .append(PropertiesUtilbc.key("os.arch")).append(CRLF);
-        yonyouStr.append("　　　　　　　氺氺氺氺　　　   氺氺氺氺　　　　氺氺氺氺     氺氺氺　　氺氺氺氺氺氺氺          　　　　氺氺氺氺　　　　 氺氺氺氺　　　　氺氺氺氺     氺氺氺　　　　氺氺氺　　　　 ").append("os.name：")            .append(PropertiesUtilbc.key("os.name")).append(CRLF);
-        yonyouStr.append("　　　　　　　氺氺氺　　　　   氺氺氺氺　　　　氺氺氺氺     氺氺氺　　　氺氺氺氺氺氺          　　　　氺氺氺　　　　　 氺氺氺氺　　　　氺氺氺氺     氺氺氺　　　　氺氺氺　　　　 ").append("os.version：")            .append(PropertiesUtilbc.key("os.version")).append(CRLF);
-        yonyouStr.append("　　　　　　　氺氺氺　　　　   氺氺氺氺氺氺氺氺氺氺氺氺     氺氺氺　　　氺氺氺氺氺氺          　　　　氺氺氺　　　　　 氺氺氺氺氺氺氺氺氺氺氺氺     氺氺氺氺氺氺氺氺氺氺　　　　 ").append("sun.desktop：")            .append(PropertiesUtilbc.key("sun.desktop")).append(CRLF);
-        yonyouStr.append("　　　　　　　氺氺氺　　　　   　氺氺氺氺氺氺氺氺氺氺　     氺氺氺　　　　氺氺氺氺氺          　　　　氺氺氺　　　　　 　氺氺氺氺氺氺氺氺氺氺　     氺氺氺氺氺氺氺氺氺氺　　　　 ").append("user.name：")            .append(PropertiesUtilbc.key("user.name")).append(CRLF);
-        yonyouStr.append("　　　　　　　氺氺氺　　　　   　　氺氺氺氺氺氺氺氺　　     氺氺氺　　　　　氺氺氺氺          　　　　氺氺氺　　　　　 　　氺氺氺氺氺氺氺氺　　     　氺氺氺氺氺氺氺氺　　　　　 ").append("totalMemory：")            .append(Runtime.getRuntime().totalMemory() / 1024 / 1024).append(" MB").append(CRLF);
-        yonyouStr.append("　　　　　　　　　　　　　　   　　　　氺氺氺氺　　　　     　　　　　　　　　　　　          　　　　　　　　　　　　 　　　　氺氺氺氺　　　　     　　　氺氺氺氺　　　　　　　 ").append(CRLF);
+        yonyouStr.append("  ").append(CRLF);
+        yonyouStr.append("  ").append("host_ip：")            .append(InetAddress.getLocalHost().getHostAddress()).append(CRLF);
+        yonyouStr.append("  ").append("host_name：")            .append(InetAddress.getLocalHost().getHostName()).append(CRLF);
+        yonyouStr.append(" __     ______  _   ___     ______  _    _   ").append("file.encoding：")            .append(PropertiesUtilbc.key("file.encoding")).append(CRLF);
+        yonyouStr.append(" \\ \\   / / __ \\| \\ | \\ \\   / / __ \\| |  | |  ").append("java.version：")            .append(PropertiesUtilbc.key("java.version")).append(CRLF);
+        yonyouStr.append("  \\ \\_/ / |  | |  \\| |\\ \\_/ / |  | | |  | |  ").append("java.Memory：")            .append(Runtime.getRuntime().totalMemory() / 1024).append(CRLF);
+        yonyouStr.append("   \\   /| |  | | . ` | \\   /| |  | | |  | |  ").append("java.io.tmpdir：")            .append(PropertiesUtilbc.key("java.io.tmpdir")).append(CRLF);
+        yonyouStr.append("    | | | |__| | |\\  |  | | | |__| | |__| |  ").append("os.arch：")            .append(PropertiesUtilbc.key("os.arch")).append(CRLF);
+        yonyouStr.append("    |_|  \\____/|_| \\_|  |_|  \\____/ \\____/   ").append("os.name：")            .append(PropertiesUtilbc.key("os.name")).append(CRLF);
+        yonyouStr.append("                                             ").append("os.version：")            .append(PropertiesUtilbc.key("os.version")).append(CRLF);
+        yonyouStr.append("                                             ").append("sun.desktop：")            .append(PropertiesUtilbc.key("sun.desktop")).append(CRLF);
+        yonyouStr.append("  ").append("user.name：")            .append(PropertiesUtilbc.key("user.name")).append(CRLF);
+        yonyouStr.append("  ").append("totalMemory：")            .append(Runtime.getRuntime().totalMemory() / 1024 / 1024).append(" MB").append(CRLF);
+        yonyouStr.append("  ").append(CRLF);
         yonyouStr.append("　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　 ").append(LEFT_CHEV)            .append(DateUtil.currentDateTime()).append(RIGHT_CHEV).append(CRLF);
         yonyouStr.append(CRLF);
         yonyouStr.append(CRLF);
@@ -966,40 +966,7 @@ public final class LoggerUtilbc implements PubConsUtilbc, Serializable
         yonyouStr.append(CRLF);
 
         return yonyouStr;
-    }
-    public static StringBuffer getYonYouStr( ) throws UnknownHostException
-    {
-        StringBuffer yonyouStr = new StringBuffer();
-        yonyouStr.append(CRLF);
-        yonyouStr.append(CRLF);
-        yonyouStr.append("　　　　　　　　　　　　　　　　　　　　　　  　　　　　　　ＱＱＱＱ　　　　　　　　　　　                  ").append(CRLF);
-        yonyouStr.append("　　ＱＱＱＱＱＱＱＱＱＱＱＱＱＱＱＱＱＱ　　  　　　　　　　ＱＱＱＱ　　　　　　　　　　　                  ").append(CRLF);
-        yonyouStr.append("　　ＱＱＱＱＱＱＱＱＱＱＱＱＱＱＱＱＱＱ　　  　　ＱＱＱＱＱＱＱＱＱＱＱＱＱＱＱＱＱＱＱ　                  ").append("host_ip：")            .append(InetAddress.getLocalHost().getHostAddress()).append(CRLF);
-        yonyouStr.append("　　ＱＱＱＱＱＱＱＱＱＱＱＱＱＱＱＱＱＱ　　  　　ＱＱＱＱＱＱＱＱＱＱＱＱＱＱＱＱＱＱＱ　                  ").append("host_name：")            .append(InetAddress.getLocalHost().getHostName()).append(CRLF);
-        yonyouStr.append("　　ＱＱＱＱ　　　　ＱＱＱ　　　　ＱＱＱ　　  　　ＱＱＱＱＱＱＱＱＱＱＱＱＱＱＱＱＱＱＱ　                  ").append("file.encoding：")            .append(PropertiesUtilbc.key("file.encoding")).append(CRLF);
-        yonyouStr.append("　　ＱＱＱＱ　　　　ＱＱＱ　　　　ＱＱＱ　　  　　ＱＱＱＱＱＱＱＱＱＱＱＱＱＱＱＱＱＱＱ　                  ").append("java.version：")            .append(PropertiesUtilbc.key("java.version")).append(CRLF);
-        yonyouStr.append("　　ＱＱＱＱＱＱＱＱＱＱＱＱＱＱＱＱＱＱ　　  　　　　　　ＱＱＱＱ　　　　　　　　　　　　                  ").append("java.Memory：")            .append(Runtime.getRuntime().totalMemory() / 1024).append(CRLF);
-        yonyouStr.append("　　ＱＱＱＱＱＱＱＱＱＱＱＱＱＱＱＱＱＱ　　  　　　　　ＱＱＱＱＱＱＱＱＱＱＱＱＱＱＱ　　                  ").append("java.io.tmpdir：")            .append(PropertiesUtilbc.key("java.io.tmpdir")).append(CRLF);
-        yonyouStr.append("　　ＱＱＱＱＱＱＱＱＱＱＱＱＱＱＱＱＱＱ　　  　　　　　ＱＱＱＱＱＱＱＱＱＱＱＱＱＱＱ　　                  ").append("os.arch：")            .append(PropertiesUtilbc.key("os.arch")).append(CRLF);
-        yonyouStr.append("　　ＱＱＱＱ　　　　ＱＱＱ　　　　ＱＱＱ　　  　　　　　ＱＱＱＱＱＱＱＱＱＱＱＱＱＱＱ　　                  ").append("os.name：")            .append(PropertiesUtilbc.key("os.name")).append(CRLF);
-        yonyouStr.append("　　ＱＱＱＱ　　　　ＱＱＱ　　　　ＱＱＱ　　  　　　　ＱＱＱＱＱＱＱ　　　　ＱＱＱＱＱ　　                  ").append("os.version：")            .append(PropertiesUtilbc.key("os.version")).append(CRLF);
-        yonyouStr.append("　　ＱＱＱＱＱＱＱＱＱＱＱＱＱＱＱＱＱＱ　　  　　　　ＱＱＱＱＱＱＱＱ　　ＱＱＱＱＱ　　　                  ").append("sun.desktop：")            .append(PropertiesUtilbc.key("sun.desktop")).append(CRLF);
-        yonyouStr.append("　　ＱＱＱＱＱＱＱＱＱＱＱＱＱＱＱＱＱＱ　　  　　　　ＱＱＱＱＱＱＱＱＱ　ＱＱＱＱ　　　　                  ").append("user.name：")            .append(PropertiesUtilbc.key("user.name")).append(CRLF);
-        yonyouStr.append("　　ＱＱＱＱＱＱＱＱＱＱＱＱＱＱＱＱＱＱ　　  　　　ＱＱＱＱＱ　ＱＱＱＱＱＱＱＱＱ　　　　                  ").append("totalMemory：")            .append(Runtime.getRuntime().totalMemory() / 1024 / 1024).append(" MB").append(CRLF);
-        yonyouStr.append("　　ＱＱＱＱ　　　　ＱＱＱ　　　　ＱＱＱ　　  　　ＱＱＱＱＱ　　ＱＱＱＱＱＱＱＱ　　　　　                  ").append(CRLF);
-        yonyouStr.append("　　ＱＱＱＱ　　　　ＱＱＱ　　　　ＱＱＱ　　  　ＱＱＱＱＱＱ　　ＱＱＱＱＱＱＱＱ　　　　　                  ").append(LEFT_CHEV)            .append(DateUtil.currentDateTime()).append(RIGHT_CHEV).append(CRLF);
-        yonyouStr.append("　　ＱＱＱＱ　　　　ＱＱＱＱ　　ＱＱＱＱ　　  　ＱＱＱＱＱＱＱＱＱＱＱＱＱＱＱＱＱＱＱＱ　                  ").append(CRLF);
-        yonyouStr.append("　ＱＱＱＱＱ　　　　ＱＱＱＱＱＱＱＱＱＱ　　  　ＱＱＱＱＱＱＱＱＱＱＱＱＱＱＱＱＱＱＱＱ　                  ").append(CRLF);
-        yonyouStr.append("　ＱＱＱＱ　　　　　ＱＱＱＱＱＱＱＱＱＱ　　  　　ＱＱ　ＱＱＱＱＱＱＱ　　ＱＱＱＱＱＱＱ　                  ").append(CRLF);
-        yonyouStr.append("　　ＱＱＱ　　　　　ＱＱＱ　ＱＱＱＱＱＱ　　  　　Ｑ　　　ＱＱＱＱ　　　　　　　ＱＱＱ　　                  ").append(CRLF);
-        yonyouStr.append(CRLF);
-        yonyouStr.append(CRLF);
-        yonyouStr.append(CRLF).append(getHXWSplitLine());
-        yonyouStr.append(CRLF);
-
-        return yonyouStr;
-    }
-
+    } 
     public static StringBuffer getMsgStr() throws UnknownHostException
     {
 
