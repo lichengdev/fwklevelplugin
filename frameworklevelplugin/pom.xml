@@ -233,6 +233,7 @@
 	</dependencies>
 
 	<build>
+	<finalName>pub_frameworklevelplugin_1.8+</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
